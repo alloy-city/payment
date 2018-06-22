@@ -1,0 +1,22 @@
+{
+  "name": "payment",
+  "version": "0.9.0",
+  "description": "A TypeScript module to provide payment functionality to Alloy City clients.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "npx webpack --config webpack.dev.config.js",
+    "build:prod": "npx webpack --config webpack.prod.config.js"
+  },
+  "author": "Bernardo SOUSA",
+  "license": "GNU GPLv3",
+  "devDependencies": {
+    "@types/bootstrap": "^4.1.0",
+    "@types/jquery": "^3.3.1",
+    "ifdef-loader": "^2.0.3",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.2"
+  }
+}
