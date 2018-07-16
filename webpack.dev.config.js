@@ -25,7 +25,7 @@ module.exports = {
     },
     output: {
         filename: 'payment-bundle.js',
-        path: path.resolve("C:/Alloy/Alloy-Server-v3.0/apps/pantoufle/public/static-files/modules")
+        path: path.resolve("../../Alloy-Server-v3.0/apps/pantoufle/public/static-files/modules")
     },
     mode: 'development',
     devtool: "inline-source-map"
