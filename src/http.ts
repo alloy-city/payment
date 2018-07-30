@@ -1,5 +1,6 @@
 declare var apiDomain: string;
 declare var notify: any;
+declare var localStorage: any;
 
 function http(method: string, body: object, route: string, callback: any){
     let headers = new Headers({
