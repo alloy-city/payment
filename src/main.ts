@@ -156,7 +156,6 @@ class Cart implements Logger {
             }
 
         }, '#paypal-button-container');
-        
     }
 }
 
