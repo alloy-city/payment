@@ -35,13 +35,12 @@ class Cart implements Logger {
     }
 
     add(productId: string, price: number, title: string){
-        
         let body = {
             type: "sign",
             price: price,
             products: [productId]
         }
-        
+
         post(body, "accept-terms", (res: any) => {
             /// #if DEBUG
             console.log(res)
@@ -62,7 +61,6 @@ class Cart implements Logger {
                 showCart(this.items)
             }
         })
-
     }
 
     removeItem(_id: string){
