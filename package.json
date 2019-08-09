@@ -1,6 +1,6 @@
 {
   "name": "payment",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A TypeScript module to provide payment functionality to Alloy City clients.",
   "repository": {
     "type": "git",

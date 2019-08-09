@@ -27,7 +27,7 @@ class Cart implements Logger {
         this.items = Auth.userData.shoppingCart
         if (this.items.length > 0) Evidence.notify(this.items.length)
     }
-    
+
     log(){
         for (let item in this.items){
             console.log(this.items[item])
@@ -43,20 +43,20 @@ class Cart implements Logger {
 
         post(body, "accept-terms", (res: any) => {
             /// #if DEBUG
-            console.log(res)
+            // console.log(res)
             /// #endif
             if (res == 304){
                 $("#product-detail").modal('hide');
                 notify(string.alerts.productAlreadyOnShoppingCart, "warning", false)
             } else {
                 let item = new Item(productId, price, title)
-                
+
                 if (this.items == undefined) {
                     this.items = [item]
                 } else {
                     this.items.push(item)
                 }
-                
+
                 Evidence.notify(this.items.length)
                 showCart(this.items)
             }
@@ -64,11 +64,8 @@ class Cart implements Logger {
     }
 
     removeItem(_id: string){
-        console.log(_id)
         post({product: _id}, "product", (res: number) => {
-            console.log(res)
             if (res == 0){
-                
                 let index
                 for (let i=0; i<this.items.length; i++){
                     if (this.items[i]._id == _id){
@@ -81,8 +78,10 @@ class Cart implements Logger {
                 document.getElementById(_id).remove()
                 document.getElementById("shopping-cart-total").innerText = total(this.items)
                 if (this.items.length < 1) {
-                    $("#payment-cart").modal('hide')
-                    Evidence.remove()
+                    $("#payment-cart").modal('hide');
+                    Evidence.remove();
+                } else {
+                    Evidence.notify(this.items.length);
                 }
             }
         })
@@ -92,7 +91,7 @@ class Cart implements Logger {
         let cover = document.getElementById("paypal-button-cover")
         cover.classList.remove("hidden")
         setTimeout(() => { cover.remove() }, 2000)
-        
+
         let total = 0
         for (let item of this.items) {
             total += item.price;
@@ -111,14 +110,13 @@ class Cart implements Logger {
             payment: function () {
                 return new paypal.Promise(function (resolve: any, reject: any) {                 
                     post(body, "payment", (paymentId: string) => {
-                        console.log(paymentId)
                         resolve(paymentId)
                     })
                 });
             },
 
             onAuthorize: function (data: any) {
-                console.log(data)
+                // console.log(data)
 
                 /*
                     data: {
@@ -133,7 +131,7 @@ class Cart implements Logger {
 
                 post(data, "payment/execute", (res: any) => {
                     /// #if DEBUG
-                    console.log(res)
+                    // console.log(res)
                     /// #endif
 
                     if (res.state == "approved"){
@@ -152,7 +150,6 @@ class Cart implements Logger {
                 console.log('The payment was cancelled!')
                 console.log(data)
             }
-
         }, '#paypal-button-container');
     }
 }
