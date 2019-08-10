@@ -139,7 +139,7 @@ class Cart implements Logger {
                             <div class="modal-body">
                                 <h3>${string.shoppingCart.success}</h3>
                                 <p>${string.shoppingCart.paymentConcluded}</p>
-                                <p>ID PayPal do pagamento: <i>${data.paymentID}</i></p>
+                                <p>${string.shoppingCart.paymentID} <i>${data.paymentID}</i></p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
