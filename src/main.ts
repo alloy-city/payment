@@ -88,9 +88,9 @@ class Cart implements Logger {
     }
 
     generatePayPalPayment(){
-        let cover = document.getElementById("paypal-button-cover")
-        cover.classList.remove("hidden")
-        setTimeout(() => { cover.remove() }, 2000)
+        // let cover = document.getElementById("paypal-button-cover")
+        // cover.classList.remove("hidden")
+        // setTimeout(() => { cover.remove() }, 2000)
 
         let total = 0
         for (let item of this.items) {
