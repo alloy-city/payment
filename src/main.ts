@@ -137,8 +137,8 @@ class Cart implements Logger {
                     if (res.state == "approved"){
                         $("#payment-cart>div.modal-dialog>div.modal-content").html(`
                             <div class="modal-body">
-                                <h3>Sucesso!</h3>
-                                <p>Seu pagamento foi devidamente registrado.</p>
+                                <h3>${string.shoppingCart.success}</h3>
+                                <p>${string.shoppingCart.paymentConcluded}</p>
                                 <p>ID PayPal do pagamento: <i>${data.paymentID}</i></p>
                             </div>
                             <div class="modal-footer">
