@@ -135,8 +135,17 @@ class Cart implements Logger {
                     /// #endif
 
                     if (res.state == "approved"){
-                        $("#payment-cart").modal("hide");
-                        document.getElementById("payment-cart").remove()
+                        $("#payment-cart>div.modal-dialog>div.modal-content").html(`
+                            <div class="modal-body">
+                                <h3>Sucesso!</h3>
+                                <p>Seu pagamento foi devidamente registrado.</p>
+                                <p>ID PayPal do pagamento: <i>${data.paymentID}</i></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                            </div>`
+                        );
+
                         Evidence.remove()
                         clearItems()
                         unlockProductCards(res.products)
