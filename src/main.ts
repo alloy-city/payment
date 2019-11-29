@@ -5,6 +5,7 @@ import * as Evidence from './evidence'
 import total from './total'
 import clearItems from './clear-items'
 import { unlockProductCards } from './unlockProductCards'
+import installments from './installments'
 
 interface Logger {
     log(s?: string): void
@@ -77,6 +78,7 @@ class Cart implements Logger {
                 this.items.splice(index, 1)
                 document.getElementById(_id).remove()
                 document.getElementById("shopping-cart-total").innerText = total(this.items)
+                document.getElementById("installment-plan").innerText = installments(this.items)
                 if (this.items.length < 1) {
                     $("#payment-cart").modal('hide');
                     Evidence.remove();

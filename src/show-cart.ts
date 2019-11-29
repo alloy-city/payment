@@ -1,5 +1,6 @@
 import { Item } from './item'
 import total from './total'
+import installments from './installments'
 
 declare var string: any
 declare var numberToBRL: ((x: number) => string)
@@ -41,6 +42,7 @@ function showCart(items: [Item]){
                                 ${listOfItems}
                             </table>
                         </div>
+                        <span id="installment-plan">${installments(items)}</span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="Payment.cart.generatePayPalPayment()">${string.buttons.pay}</button>
